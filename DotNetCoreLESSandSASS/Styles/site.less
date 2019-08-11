@@ -1,0 +1,45 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@heading-color: green;
+@h1-size: 2em;
+h1 {
+    color: @heading-color;
+    font-size: @h1-size;
+}
+h2 {
+    /*other color functions include darken, saturate, desaturate, fadein, fadeout, fade, spin, mix*/
+    color: lighten(@heading-color, 10%);
+    /*retreive color details by using funtions like hue, saturation, lightness, alpha, hs1*/
+    font-size: @h1-size *0.75;
+    /*do math operations using functions like round, ceil, floor*/
+}
+/*mixin example*/
+
+.border(@style: none,@width: 0em, @color: yellow) {
+    border-width: @width;
+    border-color: @color;
+    border-style: @style;
+}
+section{
+    .border;
+}
+header {
+    .border(dashed, 0.5em);
+}
+footer {
+    .border(dashed, 0.75em, pink);
+}
+
+ul{
+    list-style-type: lower-greek;
+    li{
+        a{
+            text-decoration: underline;
+            color: aqua;
+            &:hover{
+                text-decoration:overline;
+            }
+        }
+    }
+}
