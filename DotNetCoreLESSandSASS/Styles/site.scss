@@ -1,0 +1,60 @@
+﻿$heading-color: green;
+$h1-size: 2em;
+
+h1 {
+    color: $heading-color;
+    font-size: $h1-size;
+}
+
+h2 {
+    /*other color functions include darken, saturate, desaturate, fadein, fadeout, invert, complement*/
+    color: lighten($heading-color, 10%);
+    /*do math operations using functions like round, ceil, floor, percentage*/
+    font-size: $h1-size *0.75;
+    /*do math operations using functions like round, ceil, floor*/
+}
+/*mixin example*/
+
+@mixin border($style: none,$width: 0em, $color: yellow) {
+    border-width: $width;
+    border-color: $color;
+    border-style: $style;
+}
+
+section {
+    @include border;
+}
+
+header {
+    @include border(dashed, 0.5em);
+}
+
+footer {
+    @include border(dashed, 0.75em, pink);
+}
+
+
+ul {
+    list-style-type: lower-greek;
+
+    li {
+        a {
+            text-decoration: underline;
+            color: aqua;
+
+            &:hover {
+                text-decoration: overline;
+            }
+        }
+    }
+}
+
+
+.button {
+    background-color: blue;
+}
+
+.button-alternate {
+    @extend .button;
+    color: pink;
+}
